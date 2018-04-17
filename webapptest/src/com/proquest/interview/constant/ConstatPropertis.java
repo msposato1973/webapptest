@@ -1,5 +1,10 @@
 package com.proquest.interview.constant;
 
+/**
+ * 
+ * @author m.sposato
+ *
+ */
 public class ConstatPropertis {
 
 	public static final String INSERT = "INSERT INTO PHONEBOOK";

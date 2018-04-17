@@ -9,10 +9,13 @@ import java.sql.Statement;
 
 /**
  * This class is just a utility class, you should not have to change anything here
- * @author rconklin
+ * @author m.sposato
  */
 public class DatabaseUtil {
 	
+	/**
+	 * 
+	 */
 	public static void initDB() {
 		Connection cn = null;
 		Statement stmt = null;
@@ -33,6 +36,13 @@ public class DatabaseUtil {
 		
 	}
 	
+	/***
+	 * 
+	 * @param cn
+	 * @param stmt
+	 * @param sqlQuery
+	 * @return
+	 */
 	public static boolean save(Connection cn, Statement stmt,String sqlQuery) {
 		try {
 			return stmt.execute(sqlQuery);
@@ -42,11 +52,21 @@ public class DatabaseUtil {
 		}
 	}
 	
+	/***
+	 * 
+	 * @return
+	 * @throws SQLException
+	 * @throws ClassNotFoundException
+	 */
 	public static Connection getConnection() throws SQLException, ClassNotFoundException {
 		Class.forName("org.hsqldb.jdbcDriver");
 		return DriverManager.getConnection("jdbc:hsqldb:mem", "sa", "");
 	}
 	
+	/***
+	 * 
+	 * @param cn
+	 */
 	public static void closeConnection(Connection cn){
 		try {
 			if(cn!=null)
@@ -58,6 +78,11 @@ public class DatabaseUtil {
 		}
 	}
 	
+	/***
+	 * 
+	 * @param cn
+	 * @param stmt
+	 */
 	public static void close(Connection cn, Statement stmt){
 		try {
 			if(stmt!=null) stmt.close();
@@ -69,6 +94,12 @@ public class DatabaseUtil {
 		}
 	}
 	
+	/***
+	 * 
+	 * @param cn
+	 * @param stmt
+	 * @param rs
+	 */
 	public static void close(Connection cn, Statement stmt, ResultSet rs){
 		try {
 			if(rs!=null) rs.close();
@@ -81,6 +112,11 @@ public class DatabaseUtil {
 		}
 	}
 	
+	/***
+	 * 
+	 * @param stmt
+	 * @param rs
+	 */
 	public static void close(Statement stmt, ResultSet rs){
 		try {
 			if(rs!=null) rs.close();
@@ -93,16 +129,40 @@ public class DatabaseUtil {
 		}
 	}
 	
+	/***
+	 * 
+	 * @param connection
+	 * @return
+	 * @throws SQLException
+	 * @throws ClassNotFoundException
+	 */
 	public static Statement getStatementObj(Connection connection) throws SQLException, ClassNotFoundException {
 		Statement statement = connection.createStatement();
 		return	statement;
 	}
 	
+	/***
+	 * 
+	 * @param stmt
+	 * @param sqlQuery
+	 * @return
+	 * @throws SQLException
+	 * @throws ClassNotFoundException
+	 */
 	public static ResultSet getResultSet(Statement stmt,String sqlQuery) throws SQLException, ClassNotFoundException {
 		ResultSet rs  = stmt.executeQuery(sqlQuery) ;
 		return	rs;
 	}
 	
+	
+	/***
+	 * 
+	 * @param cn
+	 * @param sqlQuery
+	 * @return
+	 * @throws SQLException
+	 * @throws ClassNotFoundException
+	 */
 	public static PreparedStatement getPrepered(Connection cn,String sqlQuery) throws SQLException, ClassNotFoundException {
 		PreparedStatement ps = null;
 		cn.setAutoCommit(false);
