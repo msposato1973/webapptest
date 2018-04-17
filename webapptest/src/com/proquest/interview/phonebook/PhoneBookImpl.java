@@ -14,11 +14,16 @@ import com.proquest.interview.constant.ConstatPropertis;
 import com.proquest.interview.dao.PhoneBookMap;
 import com.proquest.interview.util.DatabaseUtil;
 
+/***
+ * 
+ * @author m.sposato
+ *
+ */
 public class PhoneBookImpl implements PhoneBook {
 	
 	public List<Person> people = new ArrayList<Person>();
  
-	
+	 
 	public PhoneBookImpl(){
 		super();
 	}
@@ -188,7 +193,11 @@ public class PhoneBookImpl implements PhoneBook {
 		
 	}
 	
-	
+	/***
+	 * 
+	 * @param p
+	 * @return
+	 */
 	private String getSqlQueryInsert(Person p) {
 		   System.out.println(" START - getSqlQueryInsert ");
 		   StringBuilder sqlQuery = new StringBuilder(ConstatPropertis.INSERT);
@@ -267,6 +276,11 @@ public class PhoneBookImpl implements PhoneBook {
 	}
 	
 	
+	/***
+	 * 
+	 * @return
+	 * @throws SQLException
+	 */
 	public static Connection getConnection() throws SQLException {
 		try {
 			return DatabaseUtil.getConnection();

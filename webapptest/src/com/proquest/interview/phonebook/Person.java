@@ -2,6 +2,11 @@ package com.proquest.interview.phonebook;
 
 import java.io.Serializable;
 
+/**
+ * 
+ * @author m.sposato
+ *
+ */
 public class Person implements Serializable{
 	
 	public String name;
@@ -9,6 +14,12 @@ public class Person implements Serializable{
 	public String address;
 	
 	/************************************** COSTRUCTORS. ********************************************/
+	/***
+	 * 
+	 * @param name
+	 * @param phoneNumber
+	 * @param address
+	 */
 	public Person(String name, String phoneNumber, String address){
 		if (name == null || phoneNumber == null || address == null) {
 			throw new IllegalArgumentException("null");
@@ -19,6 +30,11 @@ public class Person implements Serializable{
 		this.address = address;
 	}
 	
+	/***
+	 * 
+	 * @param name
+	 * @param phoneNumber
+	 */
 	public Person(String name, String phoneNumber){
 		if (name == null || phoneNumber == null ) {
 			throw new IllegalArgumentException("null");
@@ -34,13 +50,26 @@ public class Person implements Serializable{
 	}
 	
 	/************************************** SET. *************************************************/
+	/**
+	 * 
+	 * @param name
+	 */
 	public void setName(String name) {
 		this.name = name;
 	}
 	
+	/**
+	 * 
+	 * @param phoneNumber
+	 */
 	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
+	
+	/***
+	 * 
+	 * @param address
+	 */
 	public void setAddress(String address) {
 		this.address = address;
 	}
@@ -48,16 +77,28 @@ public class Person implements Serializable{
 	/************************************** GET. *************************************************/
 	
 	/** Returns a formatted string of the person's name. */
+	/**
+	 * 
+	 * @return
+	 */
 	public String getName() {
 		return name;
 	}
 	
 	/** Returns a formatted string of the person's address. */
+	/***
+	 * 
+	 * @return
+	 */
 	public String getAddress() {
 		return address;
 	}
 	
 	/** Returns a formatted string of the person's phoneNumber. */
+	/**
+	 * 
+	 * @return
+	 */
 	public String getPhoneNumber() {
 		return phoneNumber;
 	}

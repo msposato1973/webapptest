@@ -14,6 +14,11 @@ public class DBConnectionUtil {
 
 	public DBConnectionUtil() {}
 	
+	/***
+	 * 
+	 * @return
+	 * @throws Exception
+	 */
 	public static Properties loadPropertiesFile() throws Exception {
 
 		Properties prop = new Properties();
@@ -23,6 +28,10 @@ public class DBConnectionUtil {
 		return prop;
 	}
 
+	/***
+	 * 
+	 * @return
+	 */
 	public static Connection getConnection() {
 		
 		Properties props = new Properties();
